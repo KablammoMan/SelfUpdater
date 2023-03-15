@@ -2,9 +2,10 @@ import requests
 import json
 import subprocess
 import sys
+import os
 
 
-THIS_VERSION = 2
+THIS_VERSION = 1
 
 def get_content(url):
     try:
@@ -28,11 +29,13 @@ if latest_version > THIS_VERSION:
     while not newc:
         newc = get_content("https://github.com/KablammoMan/SelfUpdater/raw/main/main.py")
 
-    open("new.py", "x")
+    if os.path.exists("./new.py"):
+        os.remove("./new.py")
+    open("./new.py", "x")
 
-    open("new.py", "wb").write(newc)
+    open("./new.py", "wb").write(newc)
 
-    subprocess.Popen("new.py")
+    os.system("python ./new.py")
     exit()
 else:
     print(f"WE HAVE THE LATEST VERSION - WOOHOO!!!! - {sys.argv[0]}")
