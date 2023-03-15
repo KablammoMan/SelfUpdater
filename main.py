@@ -1,6 +1,5 @@
 import requests
 import json
-import subprocess
 import sys
 import os
 
