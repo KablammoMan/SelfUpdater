@@ -31,11 +31,11 @@ if latest_version > THIS_VERSION:
 
     if os.path.exists("./new.py"):
         os.remove("./new.py")
-    open("./new.py", "x")
+    open("./new.pyw", "x")
 
-    open("./new.py", "wb").write(newc)
+    open("./new.pyw", "wb").write(newc)
 
-    os.system("python ./new.py")
+    os.system("python ./new.pyw")
     exit()
 else:
     print(f"WE HAVE THE LATEST VERSION - WOOHOO!!!! - {sys.argv[0]}")
