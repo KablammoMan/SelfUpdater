@@ -3,7 +3,7 @@ import requests
 
 THIS_VERSION = 1
 
-def get_version(url):
+def get_content(url):
     try:
         v = requests.get(url, allow_redirects=True, verify=False)
     except:
@@ -12,8 +12,16 @@ def get_version(url):
         return False
     return v.content
 
-ver = get_version("https://github.com/KablammoMan/SelfUpdater/raw/main/version.json")
-while not ver:
-    ver = get_version("https://github.com/KablammoMan/SelfUpdater/raw/main/version.json")
 
-print(ver)
+
+ver = get_content("https://github.com/KablammoMan/SelfUpdater/raw/main/version.json")
+while not ver:
+    ver = get_content("https://github.com/KablammoMan/SelfUpdater/raw/main/version.json")
+
+latest_version = ver.decode()
+
+if latest_version > THIS_VERSION:
+    newc = get_content("https://github.com/KablammoMan/SelfUpdater/raw/main/client.py")
+    while not newc:
+        newc = get_content("https://github.com/KablammoMan/SelfUpdater/raw/main/client.py")
+        
