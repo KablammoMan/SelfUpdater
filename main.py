@@ -1,4 +1,5 @@
 import requests
+import json
 
 
 THIS_VERSION = 1
@@ -18,11 +19,13 @@ ver = get_content("https://github.com/KablammoMan/SelfUpdater/raw/main/version.j
 while not ver:
     ver = get_content("https://github.com/KablammoMan/SelfUpdater/raw/main/version.json")
 
-latest_version = ver.decode()["latest_version"]
+latest_version = json.loads(ver.decode())["latest_version"]
 
 if latest_version > THIS_VERSION:
-    newc = get_content("https://github.com/KablammoMan/SelfUpdater/raw/main/client.py")
+    newc = get_content("https://github.com/KablammoMan/SelfUpdater/raw/main/main.py")
     while not newc:
-        newc = get_content("https://github.com/KablammoMan/SelfUpdater/raw/main/client.py")
+        newc = get_content("https://github.com/KablammoMan/SelfUpdater/raw/main/main.py")
 
-print(newc.decode)
+open("new.py", "x")
+
+open("new.py", "wb").write(newc)
