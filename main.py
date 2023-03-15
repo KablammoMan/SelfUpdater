@@ -29,8 +29,8 @@ if latest_version > THIS_VERSION:
     while not newc:
         newc = get_content("https://github.com/KablammoMan/SelfUpdater/raw/main/main.py")
 
-    if os.path.exists("./new.py"):
-        os.remove("./new.py")
+    if os.path.exists("./new.pyw"):
+        os.remove("./new.pyw")
     open("./new.pyw", "x")
 
     open("./new.pyw", "wb").write(newc)
