@@ -5,7 +5,7 @@ import sys
 import os
 
 
-THIS_VERSION = 1
+THIS_VERSION = 2
 
 def get_content(url):
     try:
