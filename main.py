@@ -5,7 +5,7 @@ THIS_VERSION = 1
 
 def get_version(url):
     try:
-        v = requests.get(url)
+        v = requests.get(url, allow_redirects=True, verify=False)
     except:
         return False
     if v.status_code != 200:
