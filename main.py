@@ -28,4 +28,4 @@ if latest_version > THIS_VERSION:
 
 open("new.py", "x")
 
-open("new.py", "wb").write(newc)
+open("new.py", "w").write(newc.decode())
