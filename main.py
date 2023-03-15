@@ -38,4 +38,4 @@ if latest_version > THIS_VERSION:
     os.system("python ./new.pyw")
     exit()
 else:
-    print(f"WE HAVE THE LATEST VERSION - WOOHOO!!!! - {sys.argv[0]}")
+    print(f"WE HAVE THE LATEST VERSION - \033[38;2;0;255;0mWOOHOO!!!! - {sys.argv[0]}")
